@@ -14,13 +14,15 @@ import Series from "./components/Series.vue";
 
 import axios from "axios";
 
+
 export default {
   name: 'App',
   components: {
 
     Header,
     Films,
-    Series 
+    Series ,
+
    
   },
   data() {
@@ -74,6 +76,9 @@ export default {
 
 <style lang="scss">
 @import "./assets/style/common.scss";
+
+
+
 
 
 </style>
