@@ -1,11 +1,14 @@
 <template>
   <div id="app">
     <Header @passInput="getQuery"/>
+    <Films :movies='movies'/>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
+import Films from "./components/Films.vue";
+
 import axios from "axios";
 
 export default {
@@ -13,6 +16,7 @@ export default {
   components: {
 
     Header,
+    Films
    
   },
   data() {
@@ -25,23 +29,26 @@ export default {
 
     getQuery: function(inputValue){
 
-      this.passedInput = inputValue;
+      if(inputValue == ''){
+        this.movies = []
+      }else{
 
-      axios.get('https://api.themoviedb.org/3/search/movie', {
-        params: {
-          api_key: '24da6980da0cf63e4d4cc8af46e62ed8',
-          query: this.passedInput,
-          language: 'it-IT'
-        }
-      })
-      .then ((res) => {
-        this.movies = res.data.results
-        console.log(this.movies)
-      })
+        this.passedInput = inputValue;
+
+        axios.get('https://api.themoviedb.org/3/search/movie', {
+          params: {
+            api_key: '24da6980da0cf63e4d4cc8af46e62ed8',
+            query: this.passedInput,
+            language: 'it-IT'
+          }
+          })
+          .then ((res) => {
+            this.movies = res.data.results
+            console.log(this.movies)
+        })
+      } 
     }
   }
-  
-
 }
 </script>
 
