@@ -1,21 +1,22 @@
 <template>
-    <div class="card">
-        <img v-if="api.poster_path != null " :src="`https://image.tmdb.org/t/p/w342/${api.poster_path || api.poster_path}`" alt="">
-
+    <div class="card" v-if='api.poster_path != null'>
+        <div class="poster">
+            <img :src="`https://image.tmdb.org/t/p/w342/${api.poster_path}`" alt="">
+        </div>
         
         <ul class="info">
-            <li>Title: {{api.title || api.name}}</li>
+            <li> <strong>Title:</strong> {{api.title || api.name}}</li>
 
-            <li>Original title: {{api.original_title || api.original_name}}</li>
+            <li v-if="api.original_title !== api.title || api.original_name !== api.name"><strong>Original title:</strong> {{api.original_title || api.original_name}}</li>
 
-            <li>Original language: <lang-flag :iso="api.original_language || api.original_language" :squared="false"/></li>
+            <li><strong>Original language:</strong> <lang-flag :iso="api.original_language" :squared="false"/></li>
 
-            <li>Vote: 
-                <font-awesome-icon v-for="(solid, index) in starsVote(api)" :key="index"   :icon='starSolid'/>
+            <li> <strong>Vote:</strong>
+                <font-awesome-icon class="star_solid" v-for="(solid, index) in starsVote(api)" :key="index"   :icon='starSolid'/>
                 <font-awesome-icon v-for="(empty, index) in (5 - starsVote(api))" :key="`other`+index"   :icon='starEmpty'/>
             </li>
 
-            <li v-if="api.overview || api.overview != '' " >Overview: <p>{{api.overview || api.overview}}</p></li>
+            <li v-if="api.overview != '' " ><strong>Overview:</strong><p>{{api.overview}}</p></li>
 
         </ul>
     </div>
@@ -56,6 +57,60 @@ export default {
 </script>
 
 
-<style>
+<style lang='scss' scoped>
+@import '../assets/style/variables.scss';
+
+
+.card{
+    background-color: $primaryGray;
+    max-height:31.25rem;
+    margin: 1rem;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    
+
+    .poster{
+        object-fit: cover;
+        transition: .8s ease-out;
+    }
+
+    &:hover{
+        cursor:pointer;
+        box-shadow: inset 0px 2px 5px 1px $primaryBlue;
+    }
+    
+    &:hover .poster{
+        opacity:0;
+        transform: rotatey(180deg);
+    }
+
+    .info{
+    opacity:0;
+    padding: .625rem;
+    display: flex;
+    flex-direction: column;
+    position: absolute; 
+
+        li{
+            margin: .3125rem 0;
+        }
+        p{
+            margin: 1rem 0;
+        }
+        .star_solid{
+            color: $starGold;
+        }
+    }
+
+    &:hover .info{
+        opacity:1;
+        transition: 1s;
+    }
+
+}
+
+
+
 
 </style>

@@ -1,4 +1,9 @@
+// GOOGLE FONTS
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+// VARIABLES
 @import "./variables.scss";
+
+
 
 // RESET/GENERAL
 
@@ -8,7 +13,28 @@
     box-sizing: border-box;
 }
 
-ul{
-    list-style:none;
-
+body{
+    font-family: 'Bebas Neue', cursive;
 }
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+strong{
+    color: $primaryBlack;
+    
+}
+
+.wrapper{
+    overflow-x: scroll;
+    background-color: $primaryBlack;
+    -webkit-overflow-scrolling:touch;
+    
+}
+
+
+
+

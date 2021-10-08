@@ -1,14 +1,20 @@
 <template>
   <header>
+   
     <div class="logo">
         <img src="../assets/img/logo.png" alt="" />
     </div>
-    <div class="input_box">
-        <button @click="$emit('passInput', searchInput)">
-            <font-awesome-icon   :icon='search'/>
-        </button>
-        <input placeholder="Titoli, persone, generi" type="text" v-model="searchInput" />
-    </div>
+
+
+  <div class="input_box ">
+      <button @click="$emit('passInput', searchInput)">
+          <font-awesome-icon   :icon='search'/>
+      </button>
+      <input placeholder="Titoli, persone, generi" type="text" v-model="searchInput" />
+  </div>
+         
+     
+    
   </header>
 </template>
 
@@ -34,6 +40,7 @@ export default {
 <style lang='scss' scoped>
 @import '../assets/style/variables.scss';
 
+
 header {
     display: flex;
     align-items: center;
@@ -41,26 +48,35 @@ header {
     padding: 1.875rem 3.125rem;
     background-color: $primaryBlack;
     max-height: 4.375rem;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    box-shadow:  0px 0px 20px -4px $primaryWhite;
+
+
 
     .logo{
-        max-width: 6.25rem;
+      width: 10%;
+      
 
         img{
-            width:100%
+          width:100%;
+          
         }
     }
 
     .input_box{
-        border: 1px solid $primaryWhite;
+      border: 1px solid $primaryWhite;
+      display: flex;
 
-        input,
-        button{
-            padding: .3125rem .625rem;
-            background-color: transparent;
-            border: none;
-            color: $primaryWhite;
+      input,
+      button{
+          padding: .3125rem .625rem;
+          background-color: transparent;
+          border: none;
+          color: $primaryWhite;
 
-        }
+      }
     }
 
    

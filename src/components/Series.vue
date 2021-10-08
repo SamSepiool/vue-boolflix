@@ -1,14 +1,15 @@
 <template>
-
-    <div class="wrapper">
+    <section class="series">
         <h2>Series</h2>
-        <ul>
-            <li v-for="(serie, index) in tvSeries" :key="index">
-                <Card :api="serie"/>
-            </li>
-        </ul>    
-    </div>
-  
+        <div class="wrapper">
+            
+            <ul>
+                <li v-for="(serie, index) in tvSeries" :key="index">
+                    <Card :api="serie"/>
+                </li>
+            </ul>    
+        </div>
+    </section>
 </template>
 
 <script>
@@ -27,6 +28,18 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+@import '../assets/style/variables.scss';
+
+.series{
+    background-color: $primaryBlack;
+    color: $primaryWhite;
+
+
+    h2{
+    padding: .9375rem;
+    }
+
+}
 
 
 </style>

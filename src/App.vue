@@ -1,8 +1,11 @@
 <template>
   <div id="app">
     <Header @passInput="getQuery"/>
-    <Films :movies='movies'/>
-    <Series :tvSeries='tvSeries'/>
+
+    <main>
+      <Films :movies='movies'/>
+      <Series :tvSeries='tvSeries'/>
+    </main>
   </div>
 </template>
 
