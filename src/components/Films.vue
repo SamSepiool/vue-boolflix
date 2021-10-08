@@ -4,7 +4,6 @@
         <h2 v-if='movies.length != 0'>Movies</h2>
 
         <div class="wrapper">
-            
             <ul>
                 <li v-for="(movie, index) in movies" :key="index">
                     <Card :api="movie"/>
@@ -36,15 +35,20 @@ export default {
 
 
 .films{
-    background-color: $primaryBlack;
     color: $primaryWhite;
     padding-top: 4.375rem;
     
     h2{
-    padding: .9375rem;
+        padding: .9375rem;
+        font-size: 2em;
+    }
 
+    li{
+        width: 20%;  
     }
 
 }
+
+
 
 </style>

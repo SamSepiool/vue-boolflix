@@ -15,25 +15,21 @@
 
 body{
     font-family: 'Bebas Neue', cursive;
+    background-color: $primaryBlue;
 }
 
 ul{
     list-style: none;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 strong{
     color: $primaryBlack;
+    font-size: 1.2em;
     
 }
 
-.wrapper{
-    overflow-x: scroll;
-    background-color: $primaryBlack;
-    -webkit-overflow-scrolling:touch;
-    
-}
 
 
 

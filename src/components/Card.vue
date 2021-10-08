@@ -1,8 +1,13 @@
 <template>
-    <div class="card" v-if='api.poster_path != null'>
+    
+
+    <div class="card">
         <div class="poster">
-            <img :src="`https://image.tmdb.org/t/p/w342/${api.poster_path}`" alt="">
+            <img v-if='api.poster_path'  :src="`https://image.tmdb.org/t/p/w342/${api.poster_path}`" alt="">
+
+            <img v-else src="../assets/img/placeholder.png" alt="">
         </div>
+
         
         <ul class="info">
             <li> <strong>Title:</strong> {{api.title || api.name}}</li>
@@ -16,11 +21,12 @@
                 <font-awesome-icon v-for="(empty, index) in (5 - starsVote(api))" :key="`other`+index"   :icon='starEmpty'/>
             </li>
 
-            <li v-if="api.overview != '' " ><strong>Overview:</strong><p>{{api.overview}}</p></li>
+            <li v-if="api.overview" ><strong>Overview:</strong><p>{{api.overview}}</p></li>
 
         </ul>
     </div>
-  
+
+   
 </template>
 
 <script>
@@ -60,37 +66,45 @@ export default {
 <style lang='scss' scoped>
 @import '../assets/style/variables.scss';
 
-
 .card{
-    background-color: $primaryGray;
-    max-height:31.25rem;
-    margin: 1rem;
-    display: flex;
-    overflow: hidden;
     position: relative;
-    
-
-    .poster{
-        object-fit: cover;
-        transition: .8s ease-out;
-    }
+    margin: .625rem;
+    background-color: $primaryGray;
+    font-size: 1rem;
 
     &:hover{
         cursor:pointer;
         box-shadow: inset 0px 2px 5px 1px $primaryBlue;
+        overflow-y: scroll;
+
     }
     
+    .poster{
+        width: 100%;
+        height: 25rem;
+        transition: .8s ease-out;
+        img{
+            width: 100%;
+            height: 25rem;
+            object-fit: cover;
+        }
+    }
+
     &:hover .poster{
         opacity:0;
         transform: rotatey(180deg);
     }
 
+
     .info{
-    opacity:0;
-    padding: .625rem;
-    display: flex;
-    flex-direction: column;
-    position: absolute; 
+        position: absolute;
+        top: 0;
+        // display: flex; COMMON
+        flex-direction: column;
+        width: 100%;   
+        padding: .625rem;
+        opacity: 0;
+
 
         li{
             margin: .3125rem 0;
@@ -103,12 +117,66 @@ export default {
         }
     }
 
-    &:hover .info{
+        &:hover .info{
         opacity:1;
         transition: 1s;
     }
-
 }
+
+// .card{
+//     width: 100%;
+//     background-color: $primaryGray;
+//     // margin: .3125rem;
+//     display: flex;
+//     overflow: hidden;
+//     position: relative;
+    
+//     .poster{
+//         transition: .8s ease-out;
+//         width: 100%;
+
+//         img{
+//             width: 100%;
+//             height: 21.875rem; 
+//             object-fit: cover;
+//         }
+//     }
+
+//     &:hover{
+//         cursor:pointer;
+//         box-shadow: inset 0px 2px 5px 1px $primaryBlue;
+//     }
+    
+//     &:hover .poster{
+//         opacity:0;
+//         transform: rotatey(180deg);
+//     }
+
+//     .info{
+//     opacity:0;
+//     padding: .625rem;
+//     display: flex;
+//     flex-direction: column;
+//     position: absolute; 
+
+//         li{
+//             margin: .3125rem 0;
+//         }
+//         p{
+//             margin: 1rem 0;
+//             overflow-y:scroll;
+//         }
+//         .star_solid{
+//             color: $starGold;
+//         }
+//     }
+
+//     &:hover .info{
+//         opacity:1;
+//         transition: 1s;
+//     }
+
+// }
 
 
 

@@ -31,15 +31,20 @@ export default {
 @import '../assets/style/variables.scss';
 
 .series{
-    background-color: $primaryBlack;
     color: $primaryWhite;
-
-
+    padding-top: 4.375rem;
+    
     h2{
-    padding: .9375rem;
+        padding: .9375rem;
+        font-size: 2em;
+    }
+
+    li{
+        width: 20%;  
     }
 
 }
+
 
 
 </style>
