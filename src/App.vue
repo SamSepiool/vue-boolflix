@@ -3,8 +3,8 @@
     <Header @passInput="getQuery"/>
 
     <main>
-      <Films :movies='movies'/>
-      <Series :tvSeries='tvSeries'/>
+      <Films :movies='movies' :noMovies='noMovies'/>
+      <Series :tvSeries='tvSeries' :noSeries='noSeries'/>
     </main>
   </div>
 </template>
@@ -32,13 +32,17 @@ export default {
     return{
       passedInput: '',
       movies: [],
-      tvSeries: []
+      noMovies: false,
+      tvSeries: [],
+      noSeries: false
       }
   },
   methods: {
 
     getQuery: function(inputValue){
-
+      this.noMovies = false;
+      this.noSeries = false;
+      
       if (inputValue == '') {
         this.movies = []
         this.tvSeries = []
@@ -57,7 +61,9 @@ export default {
           .then ((res) => {
             this.movies = res.data.results
             console.log(this.movies)
-        })
+
+            if(this.movies == ''){this.noMovies = true}
+          })
 
         // SERIES API CALL 
         axios.get('https://api.themoviedb.org/3/search/tv', {
@@ -70,7 +76,9 @@ export default {
           .then ((res) => {
             this.tvSeries = res.data.results
             console.log(this.tvSeries)
-        })
+
+            if(this.tvSeries == ''){this.noSeries = true}
+          })
       } 
     }
   }

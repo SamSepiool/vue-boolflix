@@ -1,7 +1,7 @@
 <template>
-    <section class="films">
-        <h2 v-if='movies.length == 0'>No result</h2>
-        <h2 v-if='movies.length != 0'>Movies</h2>
+    <section id="films">
+        <h2 v-if='noMovies == true'>No movies found</h2>
+        <h2 v-if='movies.length != 0'>MOVIES</h2>
 
         <div class="wrapper">
             <ul>
@@ -21,10 +21,12 @@ export default {
     name: 'Films',
     props:{
         movies: Array,
+        noMovies: Boolean
     },
     components:{
         Card,
     },
+
 }
 
 
@@ -34,17 +36,19 @@ export default {
 @import '../assets/style/variables.scss';
 
 
-.films{
+#films{
     color: $primaryWhite;
     padding-top: 4.375rem;
     
     h2{
-        padding: .9375rem;
-        font-size: 2em;
+        margin: .9375rem 3.125rem;
+        font-size: 3em;
+        
     }
 
     li{
-        width: 20%;  
+        width: 21.875rem;  
+        
     }
 
 }

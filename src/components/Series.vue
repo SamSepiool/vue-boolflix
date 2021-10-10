@@ -1,9 +1,10 @@
 <template>
-    <section class="series">
-        <h2>Series</h2>
-        <div class="wrapper">
-            
-            <ul>
+    <section id="series">
+        <h2 v-if='noSeries == true'>No series found</h2>
+        <h2 v-if='tvSeries.length != 0'>SERIES</h2>
+
+        <div class="wrapper"> 
+            <ul >
                 <li v-for="(serie, index) in tvSeries" :key="index">
                     <Card :api="serie"/>
                 </li>
@@ -20,6 +21,7 @@ export default {
     name: 'Series',
     props:{
         tvSeries: Array,
+        noSeries: Boolean
     },
     components:{
         Card,
@@ -30,18 +32,22 @@ export default {
 <style lang='scss' scoped>
 @import '../assets/style/variables.scss';
 
-.series{
+#series{
     color: $primaryWhite;
     padding-top: 4.375rem;
     
     h2{
-        padding: .9375rem;
-        font-size: 2em;
+        margin: .9375rem 3.125rem;
+        font-size: 3em;
+        
     }
 
     li{
-        width: 20%;  
+        width: 21.875rem;  
     }
+
+   
+    
 
 }
 

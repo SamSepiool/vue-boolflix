@@ -2,8 +2,14 @@
   <header>
    
     <div class="logo">
-        <img src="../assets/img/logo.png" alt="" />
+        <a href="#"><img src="../assets/img/logo.png" alt="" /></a>
     </div>
+
+    <div class="anchor">
+      <a href="#films">MOVIES</a>
+      <a href="#series">SERIES</a>
+    </div>
+
 
 
   <div class="input_box ">
@@ -42,42 +48,50 @@ export default {
 
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.875rem 3.125rem;
-    background-color: $primaryBlack;
-    max-height: 4.375rem;
-    position: fixed;
-    z-index: 10;
-    width: 100%;
-    box-shadow:  0px 0px 20px -4px $primaryWhite;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem;
+  background-color: $primaryBlack;
+  max-height: 4.375rem;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  box-shadow:  0px 0px 20px -4px $primaryWhite;
 
 
 
-    .logo{
-      width: 10%;
+  .logo{
+    width: 10%;
+    min-width: 3.125rem;
+
+    img{
+      width:100%;
       
-
-        img{
-          width:100%;
-          
-        }
     }
+  }
 
-    .input_box{
-      border: 1px solid $primaryWhite;
-      display: flex;
-
-      input,
-      button{
-          padding: .3125rem .625rem;
-          background-color: transparent;
-          border: none;
-          color: $primaryWhite;
-
-      }
+  .anchor{
+    a{
+      margin: .75rem;
     }
+  }
+
+  .input_box{
+    border: 1px solid $primaryWhite;
+    display: flex;
+    min-width: 3.125rem;
+    overflow: hidden;
+
+    input,
+    button{
+      padding: .3125rem .625rem;
+      background-color: transparent;
+      border: none;
+      color: $primaryWhite;
+
+    }
+  }
 
    
 }

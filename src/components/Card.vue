@@ -68,7 +68,7 @@ export default {
 
 .card{
     position: relative;
-    margin: .625rem;
+    margin: 1.125rem .9375rem;
     background-color: $primaryGray;
     font-size: 1rem;
 
@@ -81,12 +81,15 @@ export default {
     
     .poster{
         width: 100%;
-        height: 25rem;
+        height: 28.125rem;
         transition: .8s ease-out;
+        
         img{
             width: 100%;
-            height: 25rem;
+            height: 28.125rem;
             object-fit: cover;
+            
+            
         }
     }
 
@@ -122,63 +125,5 @@ export default {
         transition: 1s;
     }
 }
-
-// .card{
-//     width: 100%;
-//     background-color: $primaryGray;
-//     // margin: .3125rem;
-//     display: flex;
-//     overflow: hidden;
-//     position: relative;
-    
-//     .poster{
-//         transition: .8s ease-out;
-//         width: 100%;
-
-//         img{
-//             width: 100%;
-//             height: 21.875rem; 
-//             object-fit: cover;
-//         }
-//     }
-
-//     &:hover{
-//         cursor:pointer;
-//         box-shadow: inset 0px 2px 5px 1px $primaryBlue;
-//     }
-    
-//     &:hover .poster{
-//         opacity:0;
-//         transform: rotatey(180deg);
-//     }
-
-//     .info{
-//     opacity:0;
-//     padding: .625rem;
-//     display: flex;
-//     flex-direction: column;
-//     position: absolute; 
-
-//         li{
-//             margin: .3125rem 0;
-//         }
-//         p{
-//             margin: 1rem 0;
-//             overflow-y:scroll;
-//         }
-//         .star_solid{
-//             color: $starGold;
-//         }
-//     }
-
-//     &:hover .info{
-//         opacity:1;
-//         transition: 1s;
-//     }
-
-// }
-
-
-
 
 </style>

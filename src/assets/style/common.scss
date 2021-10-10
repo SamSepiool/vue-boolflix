@@ -13,15 +13,30 @@
     box-sizing: border-box;
 }
 
+
+html{
+    scroll-behavior: smooth;
+
+}
+
 body{
     font-family: 'Bebas Neue', cursive;
     background-color: $primaryBlue;
+}
+
+
+
+a{
+    text-decoration: none;
+    color: $primaryWhite;
+    
 }
 
 ul{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 strong{
@@ -29,6 +44,8 @@ strong{
     font-size: 1.2em;
     
 }
+
+
 
 
 
